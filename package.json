@@ -1,0 +1,20 @@
+{
+  "description": "proyecto integrador #1",
+  "name": "proyectonpm",
+  "version": "1.0.0",
+  "main": "proyectonpm.js",
+  "scripts": {
+    "tareas": "node proyectonpm.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarolinaA17/-node- server.git"
+  },
+  "author": "Karolina Acosta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarolinaA17/-node- server/issues"
+  },
+  "homepage": "https://github.com/KarolinaA17/-node- server#readme"
+}
