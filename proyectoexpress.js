@@ -23,27 +23,27 @@ let listaDeTareas = [
   {
     indicador: 1,
     descripcion: "Hacer aseo a la casa",
-    estado: "Completado",
+    estado: true,
   },
   {
     indicador: 2,
     descripcion: "Ir al supermercado",
-    estado: "Completado",
+    estado: true,
   },
   {
     indicador: 3,
     descripcion: "Organizar mercado",
-    estado: " Completado",
+    estado: true,
   },
   {
     indicador: 4,
     descripcion: "Hacer el almuerzo",
-    estado: "Incompleto",
+    estado: false,
   },
   {
     indicador: 5,
     descripcion: "Sacar los perros al parque",
-    estado: "Incompleto",
+    estado: false,
   },
 ];
 

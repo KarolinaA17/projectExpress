@@ -1,10 +1,9 @@
 const { Router } = require("express");
-const port = 8000;
+const port = 8080;
 
 app.listen(port, () => {
   console.log(`Servidor corriendo en https://localhost:${port}`);
 });
-
 Router.param(function (param, Completado) {
   return function (req, res, next, status) {
     if (status === Completado) {
@@ -17,7 +16,7 @@ Router.param(function (param, Completado) {
 
 Router.param(`estado`, `Completado`);
 
-Router.get(`/listaDeTareas/:estado`, function (req, res) {
+Router.get(`/listaDeTareas/:estado/completado`, function (req, res) {
   res.send("Tareas completadas");
 });
 
