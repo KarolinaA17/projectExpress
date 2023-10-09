@@ -1,4 +1,9 @@
 const { Router } = require("express");
+const port = 8000;
+
+app.listen(port, () => {
+  console.log(`Servidor corriendo en https://localhost:${port}`);
+});
 
 Router.param(function (param, Completado) {
   return function (req, res, next, status) {
