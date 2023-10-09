@@ -1,23 +1,19 @@
 {
-  "description": "proyecto integrador #1",
-  "name": "proyectonpm",
+  "name": "express",
   "version": "1.0.0",
-  "main": "proyectonpm.js",
+  "description": "",
+  "main": "proyectoexpress.js",
   "scripts": {
-    "tareas": "node proyectonpm.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KarolinaA17/-node- server.git"
+    "url": "git+https://github.com/KarolinaA17/projectExpress.git"
   },
   "author": "Karolina Acosta",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KarolinaA17/-node- server/issues"
+    "url": "https://github.com/KarolinaA17/projectExpress/issues"
   },
-  "homepage": "https://github.com/KarolinaA17/-node- server#readme",
-  "dependencies": {
-    "express": "^4.18.2"
-  }
+  "homepage": "https://github.com/KarolinaA17/projectExpress#readme"
 }
