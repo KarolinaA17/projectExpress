@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/KarolinaA17/projectExpress/issues"
   },
-  "homepage": "https://github.com/KarolinaA17/projectExpress#readme"
+  "homepage": "https://github.com/KarolinaA17/projectExpress#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
