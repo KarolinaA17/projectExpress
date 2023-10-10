@@ -4,11 +4,18 @@ const readline = require("readline");
 
 const express = require(`express`);
 const app = express();
-const port = 8080;
+const port = 8000;
 
+//Constantes para los routers
+const listViewRouter = require(`./list-view-router`);
+
+//Ruta para obtener la lista en formato JSON
 app.listen(port, () => {
   console.log(`Servidor corriendo en https://localhost:${port}`);
 });
+
+//Rutas para los routers
+app.use(`/list-view`, listViewRouter);
 
 app.get("/listaDeTareas", (req, res) => {
   res.json(listaDeTareas);
@@ -228,3 +235,5 @@ async function mostrarMenu() {
 }
 
 mostrarMenu();
+
+module.exports = { listaDeTareas };
