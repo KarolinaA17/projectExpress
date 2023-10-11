@@ -3,7 +3,7 @@ const listEditRouter = express.Router();
 
 // Ruta para crear una tarea (POST)
 listEditRouter.post("/agregarTarea", (req, res) => {
-  const { agregarTarea } = require(`./proyectoexpress`);
+  const { agregarTarea, actualizarTarea } = require(`./proyectoexpress`);
   const indicador = req.body.indicador;
   const descripcion = req.body.descripcion;
   const estado = req.body.estado;
@@ -22,9 +22,10 @@ listEditRouter.delete("/eliminar-tarea", (req, res) => {
 });
 
 // Ruta para actualizar una tarea (UPDATE)
-listEditRouter.put("/actualizar-tarea/:id", (req, res) => {
-  const tareaId = req.params.id;
-
+listEditRouter.put("/actualizar-tarea", (req, res) => {
+  const nuevaDescripcion = req.params.indicador;
+  const nuevoEstado = req.params.estado;
+  actualizarTarea(descripcion, estado);
   res.send(`Tarea ${tareaId} actualizada`);
 });
 
