@@ -77,7 +77,7 @@ function imprimirlistaDeTareas(listaDeTareas) {
   }
   mostrarMenu();
 }
-function añadirTarea(indicador, descripcion, estado) {
+function agregarTarea(indicador, descripcion, estado) {
   return new Promise((resolve) => {
     setTimeout(() => {
       const nuevaTarea = {
@@ -189,7 +189,7 @@ async function mostrarMenu() {
           resolve(estado);
         });
       });
-      await añadirTarea(indicador, descripcion, estado);
+      await agregarTarea(indicador, descripcion, estado);
       break;
     case "3":
       const indiceCompleta = await new Promise((resolve) => {
@@ -243,4 +243,4 @@ mostrarMenu();
 module.exports = { listaDeTareas };
 
 //Ruta para mandar funcion de crear Tarea
-module.exports = { añadirTarea };
+module.exports = { agregarTarea };
