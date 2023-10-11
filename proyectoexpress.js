@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Constantes para los routers
 const listViewRouter = require(`./list-view-router`);
+const listEditRouter = require(`./list-edit-router`);
 
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
@@ -20,6 +21,7 @@ app.listen(port, () => {
 
 //Rutas para los routers
 app.use(`/list-view`, listViewRouter);
+app.use(`/list-edit-router`, listEditRouter);
 
 //Ruta para mandar lista de tareas en formato JSON
 app.get("/listaDeTareas", (req, res) => {
