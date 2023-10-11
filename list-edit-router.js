@@ -12,16 +12,17 @@ listEditRouter.post("/agregarTarea", (req, res) => {
 });
 
 // Ruta para eliminar una tarea (DELETE)
-/* router.delete("/eliminar-tarea/:id", (req, res) => {
+/* listEditRouter.delete("/eliminar-tarea/:id", (req, res) => {
   const tareaId = req.params.id;
 
   res.send(`Tarea ${tareaId} eliminada`);
 });
 
 // Ruta para actualizar una tarea (UPDATE)
-router.put("/actualizar-tarea/:id", (req, res) => {
+listEditRouter.put("/actualizar-tarea/:id", (req, res) => {
   const tareaId = req.params.id;
 
   res.send(`Tarea ${tareaId} actualizada`);
 });
 */
+module.exports = { listEditRouter };
