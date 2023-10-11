@@ -17,7 +17,7 @@ app.listen(port, () => {
 app.use(`/list-view`, listViewRouter);
 
 //Ruta para mandar funcion de crear Tarea
-exports.añadirTarea = {};
+module.exports = añadirTarea;
 
 //Ruta para mandar lista de tareas en formato JSON
 app.get("/listaDeTareas", (req, res) => {

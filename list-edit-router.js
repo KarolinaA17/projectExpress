@@ -2,8 +2,12 @@ const express = require("express");
 const router = express.Router();
 const proyectoexpress = require(`/proyectoexpress`);
 
+const añadirTarea = require(`/proyectoexpress/`);
+
 // Ruta para crear una tarea (POST)
-router.post("/añadirTarea", proyectoexpress.añadirTarea);
+router.post("/añadirTarea", (req, res) => {
+  res.send(`Tarea agregada`);
+});
 
 // Ruta para eliminar una tarea (DELETE)
 router.delete("/eliminar-tarea/:id", (req, res) => {
