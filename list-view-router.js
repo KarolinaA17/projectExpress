@@ -12,7 +12,7 @@ listViewRouter.get(`/completado`, (req, res) => {
 
 //ver lista tareas completadas
 listViewRouter.get(`/incompleto`, (req, res) => {
-  const { tareas } = require(`./proyectoexpress`);
+  const { listaDeTareas } = require(`./proyectoexpress`);
   const tareasIncompletas = tareas.filter((tarea) => tarea.estado === false);
   res.json(tareasIncompletas);
 });

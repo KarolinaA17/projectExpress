@@ -11,7 +11,7 @@ const listViewRouter = require(`./list-view-router`);
 
 //Ruta para obtener la lista en formato JSON
 app.listen(port, () => {
-  console.log(`Servidor corriendo en https://localhost:${port}`);
+  console.log(`Servidor corriendo en http://localhost:${port}`);
 });
 
 //Rutas para los routers
