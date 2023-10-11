@@ -9,7 +9,6 @@ const port = 8000;
 //Constantes para los routers
 const listViewRouter = require(`./list-view-router`);
 
-//Ruta para obtener la lista en formato JSON
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
 });
@@ -17,6 +16,10 @@ app.listen(port, () => {
 //Rutas para los routers
 app.use(`/list-view`, listViewRouter);
 
+//Ruta para mandar funcion de crear Tarea
+exports.añadirTarea = {};
+
+//Ruta para mandar lista de tareas en formato JSON
 app.get("/listaDeTareas", (req, res) => {
   res.json(listaDeTareas);
 });
@@ -72,7 +75,6 @@ function imprimirlistaDeTareas(listaDeTareas) {
   }
   mostrarMenu();
 }
-
 function añadirTarea(indicador, descripcion, estado) {
   return new Promise((resolve) => {
     setTimeout(() => {
