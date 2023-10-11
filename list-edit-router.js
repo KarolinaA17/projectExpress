@@ -3,7 +3,7 @@ const listEditRouter = express.Router();
 
 // Ruta para crear una tarea (POST)
 listEditRouter.post("/agregarTarea", (req, res) => {
-  const { agregarTarea } = require(`/proyectoexpress`);
+  const { agregarTarea } = require(`./proyectoexpress`);
   const indicador = req.body.indicador;
   const descripcion = req.body.descripcion;
   const estado = req.body.estado;

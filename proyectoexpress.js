@@ -21,7 +21,7 @@ app.listen(port, () => {
 
 //Rutas para los routers
 app.use(`/list-view`, listViewRouter);
-app.use(`/list-edit-router`, listEditRouter);
+app.use(`/list-edit`, listEditRouter);
 
 //Ruta para mandar lista de tareas en formato JSON
 app.get("/listaDeTareas", (req, res) => {
@@ -242,7 +242,5 @@ async function mostrarMenu() {
 
 mostrarMenu();
 
-module.exports = { listaDeTareas };
-
-//Ruta para mandar funcion de crear Tarea
-module.exports = { agregarTarea };
+//Ruta para mandar funciones
+module.exports = { listaDeTareas, agregarTarea };
