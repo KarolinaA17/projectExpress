@@ -2,9 +2,6 @@ const express = require("express");
 const listEditRouter = express.Router();
 const bodyParser = require("body-parser");
 
-//Middleware para procesar JSON en las solicitudes POST
-application.use(express.json());
-
 // Ruta para crear una tarea (POST)
 listEditRouter.post("/agregarTarea", (req, res) => {
   const { agregarTarea } = require(`/proyectoexpress`);
@@ -16,7 +13,7 @@ listEditRouter.post("/agregarTarea", (req, res) => {
 });
 
 // Ruta para eliminar una tarea (DELETE)
-router.delete("/eliminar-tarea/:id", (req, res) => {
+/* router.delete("/eliminar-tarea/:id", (req, res) => {
   const tareaId = req.params.id;
 
   res.send(`Tarea ${tareaId} eliminada`);
@@ -28,5 +25,4 @@ router.put("/actualizar-tarea/:id", (req, res) => {
 
   res.send(`Tarea ${tareaId} actualizada`);
 });
-
-module.exports = router;
+*/
