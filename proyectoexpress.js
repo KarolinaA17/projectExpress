@@ -10,7 +10,6 @@ const port = 8000;
 const bodyParser = require(`/body-parser`);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-module.exports = { bodyParser };
 
 //Constantes para los routers
 const listViewRouter = require(`./list-view-router`);

@@ -1,6 +1,5 @@
 const express = require("express");
 const addTask = express.Router();
-const bodyParser = require("proyectoexpress");
 
 //Middleware para procesar JSON en las solicitudes POST
 application.use(express.json());
