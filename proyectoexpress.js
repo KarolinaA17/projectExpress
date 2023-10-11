@@ -11,6 +11,9 @@ const bodyParser = require(`body-parser`);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//Ruta para mandar a post
+const params = require(`params`);
+
 //Constantes para los routers
 const listViewRouter = require(`./list-view-router`);
 const listEditRouter = require(`./list-edit-router`);
@@ -243,4 +246,9 @@ async function mostrarMenu() {
 mostrarMenu();
 
 //Ruta para mandar funciones
-module.exports = { listaDeTareas, agregarTarea };
+module.exports = {
+  listaDeTareas,
+  agregarTarea,
+  eliminarTarea,
+  actualizarTarea,
+};

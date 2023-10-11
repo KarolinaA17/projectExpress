@@ -12,9 +12,12 @@ listEditRouter.post("/agregarTarea", (req, res) => {
 });
 
 // Ruta para eliminar una tarea (DELETE)
-/* listEditRouter.delete("/eliminar-tarea/:id", (req, res) => {
-  const tareaId = req.params.id;
-
+listEditRouter.delete("/eliminar-tarea", (req, res) => {
+  const { eliminarTarea } = require(`./proyectoexpress`);
+  const indicador = req.params.indicador;
+  const descripcion = req.params.descripcion;
+  const estado = req.params.estado;
+  eliminarTarea(indicador, descripcion, estado);
   res.send(`Tarea ${tareaId} eliminada`);
 });
 
@@ -24,5 +27,5 @@ listEditRouter.put("/actualizar-tarea/:id", (req, res) => {
 
   res.send(`Tarea ${tareaId} actualizada`);
 });
-*/
+
 module.exports = { listEditRouter };
