@@ -1,11 +1,16 @@
 const express = require("express");
-const router = express.Router();
-const proyectoexpress = require(`/proyectoexpress`);
+const addTask = express.Router();
 
-const añadirTarea = require(`/proyectoexpress/`);
+//Middleware para procesar JSON en las solicitudes POST
+application.use(express.json());
 
 // Ruta para crear una tarea (POST)
-router.post("/añadirTarea", (req, res) => {
+addTask.post("/añadirTarea", (req, res) => {
+  const { añadirTarea } = require(`/proyectoexpress`);
+  const indicador = req.body.indicador;
+  const descripcion = req.body.descripcion;
+  const estado = req.body.estado;
+  añadirTarea(tareaId);
   res.send(`Tarea agregada`);
 });
 

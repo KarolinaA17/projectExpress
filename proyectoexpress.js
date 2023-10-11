@@ -6,6 +6,10 @@ const express = require(`express`);
 const app = express();
 const port = 8000;
 
+//Ruta para mandar a post
+const body = require(`/body`);
+app.use(body.json());
+
 //Constantes para los routers
 const listViewRouter = require(`./list-view-router`);
 
@@ -15,9 +19,6 @@ app.listen(port, () => {
 
 //Rutas para los routers
 app.use(`/list-view`, listViewRouter);
-
-//Ruta para mandar funcion de crear Tarea
-module.exports = añadirTarea;
 
 //Ruta para mandar lista de tareas en formato JSON
 app.get("/listaDeTareas", (req, res) => {
@@ -239,3 +240,6 @@ async function mostrarMenu() {
 mostrarMenu();
 
 module.exports = { listaDeTareas };
+
+//Ruta para mandar funcion de crear Tarea
+module.exports = { añadirTarea };
