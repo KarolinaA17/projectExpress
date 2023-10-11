@@ -1,6 +1,5 @@
 const express = require("express");
 const listEditRouter = express.Router();
-const bodyParser = require("body-parser");
 
 // Ruta para crear una tarea (POST)
 listEditRouter.post("/agregarTarea", (req, res) => {
