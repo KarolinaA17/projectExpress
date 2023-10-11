@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 application.use(express.json());
 
 // Ruta para crear una tarea (POST)
-listEditRouter.post("/list-edit-router", (req, res) => {
+listEditRouter.post("/agregarTarea", (req, res) => {
   const { agregarTarea } = require(`/proyectoexpress`);
   const indicador = req.body.indicador;
   const descripcion = req.body.descripcion;
