@@ -1,5 +1,6 @@
 const express = require("express");
 const addTask = express.Router();
+const bodyParser = require("proyectoexpress");
 
 //Middleware para procesar JSON en las solicitudes POST
 application.use(express.json());
@@ -8,11 +9,9 @@ application.use(express.json());
 addTask.post("/añadirTarea", (req, res) => {
   const { añadirTarea } = require(`/proyectoexpress`);
   const indicador = req.body.indicador;
-  añadirTarea(indicador);
   const descripcion = req.body.descripcion;
-  añadirTarea(descripcion);
   const estado = req.body.estado;
-  añadirTarea(estado);
+  añadirTarea(indicador, descripcion, estado);
   res.send(`Tarea agregada`);
 });
 
