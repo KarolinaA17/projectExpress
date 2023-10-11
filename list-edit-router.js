@@ -8,9 +8,11 @@ application.use(express.json());
 addTask.post("/añadirTarea", (req, res) => {
   const { añadirTarea } = require(`/proyectoexpress`);
   const indicador = req.body.indicador;
+  añadirTarea(indicador);
   const descripcion = req.body.descripcion;
+  añadirTarea(descripcion);
   const estado = req.body.estado;
-  añadirTarea(tareaId);
+  añadirTarea(estado);
   res.send(`Tarea agregada`);
 });
 

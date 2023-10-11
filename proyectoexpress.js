@@ -7,8 +7,10 @@ const app = express();
 const port = 8000;
 
 //Ruta para mandar a post
-const body = require(`/body`);
-app.use(body.json());
+const body = require(`/body-parser`);
+app.use(bodyParser.json());
+app.use7(bodyParser.urlencoded({ extended: true }));
+module.exports = { body };
 
 //Constantes para los routers
 const listViewRouter = require(`./list-view-router`);
