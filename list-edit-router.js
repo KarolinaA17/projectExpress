@@ -21,11 +21,11 @@ listEditRouter.delete("/eliminartarea/:indicador", (req, res) => {
 });
 
 // Ruta para actualizar una tarea (UPDATE)
-listEditRouter.put("/actualizarTarea/:indicador", (req, res) => {
+listEditRouter.put("/actualizartarea/:indicador", (req, res) => {
   const { actualizarTarea } = require(`./proyectoexpress`);
   const indicador = req.params.indicador;
-  const nuevaDescripcion = req.body;
-  const nuevoEstado = req.body;
+  const nuevaDescripcion = req.body.nuevaDescripcion;
+  const nuevoEstado = req.body.nuevoEstado;
   actualizarTarea(indicador, nuevaDescripcion, nuevoEstado);
   res.send(`Tarea ${indicador} actualizada`);
 });
