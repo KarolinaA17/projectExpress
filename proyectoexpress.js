@@ -7,10 +7,10 @@ const app = express();
 const port = 8000;
 
 //Ruta para mandar a post
-/*const bodyParser = require(`body-parser`);
+const bodyParser = require(`body-parser`);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-*/
+
 //Ruta para mandar a post
 const params = require(`params`);
 
@@ -64,24 +64,6 @@ let listaDeTareas = [
   },
 ];
 
-function menu() {
-  return `
-  seleccionar una de las opciones:
-  1. Mirar lista de Tareas
-  2. Agregar tarea
-  3. Marcar tarea completa
-  4. Actualizar Tarea
-  5. Eliminar tarea
-  `;
-}
-
-function imprimirlistaDeTareas(listaDeTareas) {
-  console.log("LISTA DE TAREAS:");
-  for (const tarea of listaDeTareas) {
-    console.log(tarea);
-  }
-  mostrarMenu();
-}
 function agregarTarea(indicador, descripcion, estado) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -92,7 +74,6 @@ function agregarTarea(indicador, descripcion, estado) {
       };
       listaDeTareas.push(nuevaTarea);
       console.log(`tarea "${descripcion}" agregada.`);
-      mostrarMenu();
       resolve();
     }, 2000);
   });
@@ -113,12 +94,10 @@ async function marcarComoCompletada(indice, tareas) {
           console.log("Índice de tarea no válido.");
           reject("Índice de tarea no válido.");
         }
-        mostrarMenu();
       }, 2000);
     });
   } catch (error) {
     console.error("Error al marcar la tarea como completada:", error);
-    mostrarMenu();
   }
 }
 
@@ -137,7 +116,6 @@ function actualizarTarea(indicador, nuevaDescripcion, nuevoEstado) {
         console.log(`Tarea no encontrada en la lista`);
         reject();
       }
-      mostrarMenu();
     }, 2000);
   });
 }
@@ -157,11 +135,9 @@ function eliminarTarea(indice) {
         console.log("Índice fuera de rango. La tarea no se pudo eliminar.");
         reject("Índice fuera de rango"); // Agregar un mensaje de error y llamar a 'reject'
       }
-      mostrarMenu();
     }, 1000);
   }).catch((error) => {
     console.error("Error al eliminar la tarea:", error);
-    mostrarMenu();
   });
 }
 
@@ -169,4 +145,6 @@ function eliminarTarea(indice) {
 module.exports = {
   listaDeTareas,
   agregarTarea,
+  eliminarTarea,
+  actualizarTarea,
 };
