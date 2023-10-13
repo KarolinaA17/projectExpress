@@ -7,10 +7,10 @@ const app = express();
 const port = 8000;
 
 //Ruta para mandar a post
-const bodyParser = require(`body-parser`);
+/*const bodyParser = require(`body-parser`);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+*/
 //Ruta para mandar a post
 const params = require(`params`);
 
@@ -165,90 +165,8 @@ function eliminarTarea(indice) {
   });
 }
 
-async function mostrarMenu() {
-  console.log(menu());
-
-  const opcion = await new Promise((resolve) => {
-    leerDatos.question("Ingrese la opción deseada:", (opcion) => {
-      resolve(opcion);
-    });
-  });
-
-  switch (opcion) {
-    case "1":
-      imprimirlistaDeTareas(listaDeTareas);
-      break;
-    case "2":
-      const indicador = await new Promise((resolve) => {
-        leerDatos.question("Introduzca el indicador: ", (indicador) => {
-          resolve(indicador);
-        });
-      });
-      const descripcion = await new Promise((resolve) => {
-        leerDatos.question("Introduzca la descripción: ", (descripcion) => {
-          resolve(descripcion);
-        });
-      });
-      const estado = await new Promise((resolve) => {
-        leerDatos.question("Introduzca el estado: ", (estado) => {
-          resolve(estado);
-        });
-      });
-      await agregarTarea(indicador, descripcion, estado);
-      break;
-    case "3":
-      const indiceCompleta = await new Promise((resolve) => {
-        leerDatos.question(
-          "Escriba el índice de la tarea para marcarla como completada: ",
-          (indice) => {
-            resolve(indice);
-          }
-        );
-      });
-      await marcarComoCompletada(indiceCompleta, listaDeTareas);
-      break;
-    case "4":
-      const indicadorActualizar = await new Promise((resolve) => {
-        leerDatos.question("Introduzca el indicador: ", (indicador) => {
-          resolve(indicador);
-        });
-      });
-      const nuevaDescripcion = await new Promise((resolve) => {
-        leerDatos.question(
-          "Introduzca la nueva descripción: ",
-          (descripcion) => {
-            resolve(descripcion);
-          }
-        );
-      });
-      const nuevoEstado = await new Promise((resolve) => {
-        leerDatos.question("Introduzca el nuevo estado: ", (estado) => {
-          resolve(estado);
-        });
-      });
-      await actualizarTarea(
-        parseInt(indicadorActualizar),
-        nuevaDescripcion,
-        nuevoEstado
-      );
-      break;
-    case "5":
-      const indiceEliminar = await new Promise((resolve) => {
-        leerDatos.question("Indique qué tarea desea eliminar: ", (indice) => {
-          resolve(indice);
-        });
-      });
-      await eliminarTarea(parseInt(indiceEliminar));
-      break;
-  }
-}
-
-mostrarMenu();
-
 //Ruta para mandar funciones
 module.exports = {
   listaDeTareas,
   agregarTarea,
-  eliminarTarea,
-  actualizarTarea,
 };

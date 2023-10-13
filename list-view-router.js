@@ -12,6 +12,11 @@ listViewRouter.get(`/completado`, (req, res) => {
 
 //ver lista tareas incompletas
 
+listViewRouter.get("/prueba", (req, res) =>{
+  res.write("hola");
+  res.end();
+})
+
 listViewRouter.get(`/incompleto`, (req, res) => {
   const { listaDeTareas } = require(`./proyectoexpress`);
   const tareasIncompletas = listaDeTareas.filter(
