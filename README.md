@@ -1,13 +1,13 @@
-¿Qué sucedio al usar async y await?
+¿Qué es mi producto y para qué sirve?
 
-El async lo utilizamos principalmente para mostrar una funcion asincrona, asi mismo para que estas sean mas faciles de manejar. El await lo utilizamos dentro del async para pausar la ejecucion de la funcion hasta que resuelva una promesa.
+Nuestro producto consiste en una aplicacion web, donde el usuario podra crear diversas tareas, con el fin de organizar su tiempo, sin contratiempos y asi mismo evitar inconvenientes en un futuro.
 
-¿Qué sucedio al usar el método then()?
+¿Cuáles son las funcionalidades más importantes y por qué los usuarios las usarían?
 
-El metodo .then() se utiliza para gestionar promesas de manera asíncrona. Este metodo nos manda dos pramaetros importantes, "alCumpli" y "alRechazo", es decir como una promesa, si se cumple nos retornara una promesa cumplida y si no una promesa rechazada.
+La aplicacion mantiene las siguientes funciones:
 
-¿Qué diferencias encontraste entre async, await y el método then()?
+-CREAR TAREA: Esta funcion como es nombrada, sirve para que el usuario crea una o mas tareas a realizar, asi las tendra presentes.
+-ELIMINAR UNA TAREA: Esta funcion la utilizara el usuario cuando necesite borrar una serie de tareas, con la finalidad de agregar mas tareas o simplemente no mantenerlas.
+-ACTUALIZAR UNA TAREA: Este metodo se utilizara para editar errores ortograficos en la tarea, sin embargo tambien puede ser utilizada para ser marcada como completada o incompleta
 
-Async/await: Principalmente permite escribir de manera mas secuencial, sin embargo siempre esperara cumplir una promesa para seguir con el codigo anteriormente ejecutado.
-
-Método .then(): Se utiliza para manejar promesas y especificar acciones que se ejecutarán cuando una promesa se resuelva o sea rechazada.
+Esta aplicación es importante para aquellas personas que aun no saben como gestionar bien su tiempo o no recuerdan en el momento que tantos deberes deben hacer con mas urgencia o frecuencia. Finalmente podremos decir que es una de las aplicaciones mas buscadas y utilizadas para aquellas personas con estos incovenientes.
