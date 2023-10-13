@@ -13,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Ruta para mandar a post
 const params = require(`params`);
+app.use(params.json());
+app.use(params.urlencoded({ extended: true }));
 
 //Constantes para los routers
 const listViewRouter = require(`./list-view-router`);
