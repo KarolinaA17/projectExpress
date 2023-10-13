@@ -13,8 +13,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Ruta para mandar a post
 const params = require(`params`);
-app.use(params.json());
-app.use(params.urlencoded({ extended: true }));
 
 //Constantes para los routers
 const listViewRouter = require(`./list-view-router`);
@@ -144,9 +142,4 @@ function eliminarTarea(indice) {
 }
 
 //Ruta para mandar funciones
-module.exports = {
-  listaDeTareas,
-  agregarTarea,
-  eliminarTarea,
-  actualizarTarea,
-};
+module.exports = { listaDeTareas, agregarTarea, eliminarTarea };
