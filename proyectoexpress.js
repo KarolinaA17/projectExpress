@@ -142,4 +142,4 @@ function eliminarTarea(indice) {
 }
 
 //Ruta para mandar funciones
-module.exports = { listaDeTareas, agregarTarea, eliminartarea };
+module.exports = { listaDeTareas, agregarTarea, eliminarTarea };
