@@ -4,11 +4,13 @@ const listEditRouter = express.Router();
 //MIDDLEWARES POST - PUT
 
 function cuerpoVacio(req, res, next) {
-  if ((req.method === "POST", "PUT")) {
+  if (req.method === "POST" || req.method === "PUT") {
     if (Object.keys(req.body).length === 0) {
       res
         .status(400)
-        .json({ error: "Se necesita un indicador,descripcion y estado" });
+        .json({ error: "Se necesita un indicador, descripcion y estado" });
+    } else {
+      next();
     }
   } else {
     next();
@@ -20,6 +22,7 @@ function infoNoValida(req, res, next) {
     res.status(400).json({
       error: "Información no valida o atributos faltantes.",
     });
+    next();
   } else {
     next();
   }
