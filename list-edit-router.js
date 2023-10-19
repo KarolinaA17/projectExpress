@@ -18,6 +18,9 @@ function cuerpoVacio(req, res, next) {
 }
 
 function infoNoValida(req, res, next) {
+  const indicador = req.body.indicador;
+  const descripcion = req.body.descripcion;
+  const estado = req.body.estado;
   if (!indicador || !descripcion || !estado) {
     res.status(400).json({
       error: "Información no valida o atributos faltantes.",

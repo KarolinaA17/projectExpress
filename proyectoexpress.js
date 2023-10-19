@@ -28,6 +28,17 @@ app.get("/listaDeTareas", (req, res) => {
   res.json(listaDeTareas);
 });
 
+//HTTP
+function validarHTTPMetodos(req, res, next) {
+  const validarMetodo = ["GET", " POST", "PUT", "DELETE"];
+  if (!validarMetodo.includes(req.method)) {
+    res.status(400).send("Método HTTP no permitido");
+  }
+  next();
+}
+
+app.use(validarHTTPMetodos);
+
 const leerDatos = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
