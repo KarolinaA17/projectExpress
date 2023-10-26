@@ -1,10 +1,14 @@
 const fs = require("fs");
 const { resolve } = require("path");
 const readline = require("readline");
+const jwt = require("jsonwebtoken");
 
 const express = require(`express`);
+const dotenv = require(`dotenv`);
 const app = express();
 const port = 8000;
+
+dotenv.config();
 
 //Ruta para mandar a post
 const bodyParser = require(`body-parser`);
@@ -37,13 +41,63 @@ function validarHTTPMetodos(req, res, next) {
   next();
 }
 
-app.use(validarHTTPMetodos);
+/*app.use(validarHTTPMetodos);*/
 
 const leerDatos = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
+const jwtSecret = process.env.SECRET_KEY;
+
+//lista usuarios
+let user = [
+  {
+    username: "usernum1",
+    password: "123456",
+  },
+  { username: "usernum2", password: "4567890" },
+];
+
+//ruta para acceder
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+
+  //verificar credenciales
+  const usuario = user.find(
+    (user) => user.username === username && user.password === password
+  );
+  if (!usuario) {
+    return res.status(401).json({ error: "Credenciales incorrectas" });
+  }
+  //generar token
+  const token = jwt.sign(
+    {
+      username,
+      password,
+      exp: Date.now() + 60 * 1000,
+    },
+    jwtSecret
+  );
+  res.send({ token });
+});
+
+//Ruta protegida
+app.get("/rutaProtegida", (req, res) => {
+  try {
+    const token = req.headers.authorization.split("");
+    const payload = jwt.verify(token, jwtSecret);
+
+    if (Date.now() > payload.exp) {
+      return res.status(401).send({ error: "token expired" });
+    }
+    res.send("Hola!!");
+  } catch (error) {
+    res.status(401).send({ error: "hola"});
+  }
+});
+
+//listaTareas
 let listaDeTareas = [
   {
     indicador: 1,
@@ -72,6 +126,7 @@ let listaDeTareas = [
   },
 ];
 
+//FuncionAgregarTarea
 function agregarTarea(indicador, descripcion, estado) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -87,6 +142,7 @@ function agregarTarea(indicador, descripcion, estado) {
   });
 }
 
+//FuncionMarcarComoCompletada
 async function marcarComoCompletada(indice, tareas) {
   try {
     await new Promise((resolve, reject) => {
@@ -109,6 +165,7 @@ async function marcarComoCompletada(indice, tareas) {
   }
 }
 
+//FuncionActualizarTarea
 function actualizarTarea(indicador, nuevaDescripcion, nuevoEstado) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -128,6 +185,7 @@ function actualizarTarea(indicador, nuevaDescripcion, nuevoEstado) {
   });
 }
 
+//FuncionEliminarTarea
 function eliminarTarea(indice) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
