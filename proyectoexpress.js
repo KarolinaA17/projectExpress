@@ -1,5 +1,3 @@
-const fs = require("fs");
-const { resolve } = require("path");
 const readline = require("readline");
 const jwt = require("jsonwebtoken");
 
@@ -85,15 +83,22 @@ app.post("/login", (req, res) => {
 //Ruta protegida
 app.get("/rutaProtegida", (req, res) => {
   try {
-    const token = req.headers.authorization.split("");
+    const authorizationHeader = req.headers.authorization;
+
+    if (!authorizationHeader) {
+      return res.status(401).send({ error: "Token no proporcionado" });
+    }
+
+    const token = authorizationHeader.replace("Bearer ", ""); // Elimina "Bearer " del token
     const payload = jwt.verify(token, jwtSecret);
 
     if (Date.now() > payload.exp) {
-      return res.status(401).send({ error: "token expired" });
+      return res.status(401).send({ error: "Token expirado" });
     }
+
     res.send("Hola!!");
   } catch (error) {
-    res.status(401).send({ error: "hola"});
+    res.status(401).send({ error: "Token inválido" });
   }
 });
 
@@ -126,7 +131,7 @@ let listaDeTareas = [
   },
 ];
 
-//FuncionAgregarTarea
+//Funcion Agregar Tarea
 function agregarTarea(indicador, descripcion, estado) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -141,31 +146,7 @@ function agregarTarea(indicador, descripcion, estado) {
     }, 2000);
   });
 }
-
-//FuncionMarcarComoCompletada
-async function marcarComoCompletada(indice, tareas) {
-  try {
-    await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (indice >= 1 && indice <= tareas.length) {
-          // Corregir la condición
-          tareas[indice - 1].estado = "completado";
-          console.log(
-            `Tarea "${listaDeTareas[indice - 1].descripcion}" completada.`
-          );
-          resolve();
-        } else {
-          console.log("Índice de tarea no válido.");
-          reject("Índice de tarea no válido.");
-        }
-      }, 2000);
-    });
-  } catch (error) {
-    console.error("Error al marcar la tarea como completada:", error);
-  }
-}
-
-//FuncionActualizarTarea
+//Funcion Actualizar Tarea
 function actualizarTarea(indicador, nuevaDescripcion, nuevoEstado) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -185,7 +166,7 @@ function actualizarTarea(indicador, nuevaDescripcion, nuevoEstado) {
   });
 }
 
-//FuncionEliminarTarea
+//Funcion Eliminar Tarea
 function eliminarTarea(indice) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -210,6 +191,7 @@ function eliminarTarea(indice) {
 //Ruta para mandar funciones
 module.exports = {
   listaDeTareas,
+
   agregarTarea,
   eliminarTarea,
   actualizarTarea,
